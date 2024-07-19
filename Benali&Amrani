@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra la Contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        #hiddenContent {
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Introduce la contraseña para ver una sorpresa</h1>
+        <input type="password" id="password" placeholder="Introduce la contraseña">
+        <button onclick="checkPassword()">Enviar</button>
+        <p id="errorMessage" class="hidden">Contraseña incorrecta, intenta de nuevo.</p>
+        <div id="hiddenContent">
+            <h2>Te quiero</h2>
+            <p>Te quiero, eres la mejor persona que ha pasado por mi vida.</p>
+            <img src="https://imgur.com/a/F6UZsfd" alt="Foto 1">
+            <img src="https://imgur.com/a/F6UZsfd" alt="Foto 2">
+        </div>
+    </div>
+    <script>
+        function checkPassword() {
+            const correctPassword = "27/08/2023";
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+            const hiddenContent = document.getElementById("hiddenContent");
+
+            if (password === correctPassword) {
+                hiddenContent.classList.remove("hidden");
+                hiddenContent.classList.add("visible");
+                errorMessage.classList.add("hidden");
+            } else {
+                errorMessage.classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
